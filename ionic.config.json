@@ -2,5 +2,7 @@
   "name": "TMNTPizzas",
   "app_id": "5ba8c76b",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }

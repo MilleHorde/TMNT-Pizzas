@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Info</h3>
+
+  <form [formGroup]="form" (submit)="edit()">
+    <ion-item>
+      <ion-label floating>FirstName</ion-label>
+      <ion-input type="text" formControlName="firstName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>LastName</ion-label>
+      <ion-input type="text" formControlName="lastName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <button *ngIf="authService.isAuthenticated()" type="submit" ion-button [disabled]="!form.valid">Update</button>
+
+  </form>
+
+</ion-content>

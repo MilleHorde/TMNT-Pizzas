@@ -10,6 +10,19 @@
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
+      <button menuClose ion-item *ngIf="navSvc.getStateLogged()" (click)="openPage({component: profilePage})">
+        My Profile
+      </button>
+      <button menuClose ion-item *ngIf="navSvc.getStateLogged()" (click)="authService.removeToken()">
+        Disconnect
+      </button>
+      <button menuClose ion-item *ngIf="!navSvc.getStateLogged()" (click)="openPage({component: signPage, options: {haveAccount: true}})">
+        Sign in
+      </button>
+      <button menuClose ion-item *ngIf="!navSvc.getStateLogged()" (click)="openPage({component: signPage, options: {haveAccount: false}})">
+        Sign up
+      </button>
+
     </ion-list>
   </ion-content>
 
